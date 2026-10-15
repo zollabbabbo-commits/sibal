@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rose Court Lookbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Mono:wght@400;500&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+/* Layout: ornate centered masthead, four folder-shaped cases with stacked polaroids, then a uniform 3:4 polaroid grid per friend with a full-screen viewer. */
+:root{
+  --bg:#fff0f5; --bg2:#ffd9e8; --surface:#fffafc; --surface2:#ffe9f2;
+  --ink:#4b1631; --ink2:#8a4a68; --line:#f2b3cd; --spark:#f6a3c5;
+  --rose:#e8467f; --lilac:#b49cf5; --gold:#d6a03c;
+  --paper:#fffdfd; --on-acc:#2e0a1e; --danger:#c2255c;
+  --veil:rgba(58,12,38,.9); --lb-ink:#ffeaf3;
+  --f1:#ff7fb0; --f2:#b69cf5; --f3:#efbf6a; --f4:#e65b80;
+  --shadow:0 10px 26px rgba(214,58,107,.16);
+  --font-display:'Cormorant Garamond','Gowun Batang',Georgia,serif;
+  --font-ko:'Gowun Batang','Nanum Myeongjo','Apple SD Gothic Neo',serif;
+  --font-body:'Gowun Dodum','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --font-mono:'DM Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c0914; --bg2:#3a1230; --surface:#2b0f22; --surface2:#3a1530;
+    --ink:#ffe6f0; --ink2:#e3adc8; --line:#6d2a52; --spark:#7d3b66;
+    --rose:#ff7eb3; --lilac:#c9b8ff; --gold:#f0c674;
+    --paper:#fff1f7; --on-acc:#2e0a1e; --danger:#ff8fa8;
+    --veil:rgba(14,3,10,.93); --lb-ink:#ffeaf3;
+    --f1:#ff8fb8; --f2:#bda6ff; --f3:#f2c06f; --f4:#ff7096;
+    --shadow:0 10px 26px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c0914; --bg2:#3a1230; --surface:#2b0f22; --surface2:#3a1530;
+  --ink:#ffe6f0; --ink2:#e3adc8; --line:#6d2a52; --spark:#7d3b66;
+  --rose:#ff7eb3; --lilac:#c9b8ff; --gold:#f0c674;
+  --paper:#fff1f7; --on-acc:#2e0a1e; --danger:#ff8fa8;
+  --veil:rgba(14,3,10,.93); --lb-ink:#ffeaf3;
+  --f1:#ff8fb8; --f2:#bda6ff; --f3:#f2c06f; --f4:#ff7096;
+  --shadow:0 10px 26px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100%; position:relative; overflow-x:hidden;
+  background-color:var(--bg); color:var(--ink);
+  font:400 16px/1.6 var(--font-body);
+  padding-block:28px 72px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(900px 460px at 50% -10%, var(--bg2), transparent 72%),
+    radial-gradient(circle, var(--spark) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle, var(--spark) 0 1px, transparent 2px);
+  background-size:auto,130px 150px,73px 91px;
+  background-position:0 0,22px 34px,51px 12px;
+  opacity:.75;
+}
+.wrap{position:relative; z-index:1; max-width:980px; margin:0 auto}
+button{font-family:inherit; color:inherit}
+:focus-visible{outline:3px solid var(--lilac); outline-offset:2px}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); opacity:0}
+
+/* rose symbol */
+.rp .o{fill:var(--petal,var(--rose)); stroke:var(--ink); stroke-opacity:.28; stroke-width:1}
+.rp .m{fill:#fff; fill-opacity:.38; stroke:var(--ink); stroke-opacity:.2; stroke-width:.8}
+.rp .sp{fill:none; stroke:var(--ink); stroke-opacity:.45; stroke-width:1.4; stroke-linecap:round}
+
+/* masthead */
+.mast{display:grid; justify-items:center; gap:4px; text-align:center; padding:6px 0 20px}
+.logo{width:76px; height:76px; filter:drop-shadow(0 6px 10px rgba(214,58,107,.35))}
+.eyebrow{margin:8px 0 0; font:500 11px/1 var(--font-mono); letter-spacing:.3em; color:var(--ink2)}
+h1{margin:6px 0 0; display:grid; gap:6px; justify-items:center}
+.h-a{
+  display:block; font:italic 600 clamp(52px,15vw,96px)/.95 var(--font-display); padding:0 .08em .06em;
+  color:var(--rose);
+  background:linear-gradient(100deg,var(--rose) 0%,var(--lilac) 42%,var(--gold) 68%,var(--rose) 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.h-b{display:block; font:500 12px/1 var(--font-mono); letter-spacing:.6em; padding-left:.6em; color:var(--ink2)}
+.sub{margin:10px 0 0; font:400 17px/1.5 var(--font-ko); color:var(--ink2); text-wrap:balance}
+.rule{display:flex; align-items:center; gap:14px; width:min(360px,80%); margin-top:14px; color:var(--gold); font-size:16px}
+.rule::before,.rule::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+.note{
+  margin:0 0 16px; padding:10px 14px; border:1px dashed var(--line); border-radius:14px;
+  background:var(--surface2); color:var(--ink2); font-size:14px; line-height:1.5;
+}
+.hint{margin:22px 0 0; text-align:center; font:400 11px/1.6 var(--font-mono); letter-spacing:.12em; color:var(--ink2)}
+
+/* folders */
+.folders{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px 16px; margin-top:8px}
+@media (min-width:720px){.folders{grid-template-columns:repeat(4,minmax(0,1fr)); gap:26px 18px}}
+.folder{
+  position:relative; display:block; width:100%; text-align:left; cursor:pointer;
+  margin-top:14px; padding:12px; background:var(--surface);
+  border:1.5px solid var(--acc); border-radius:0 20px 20px 20px; box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.folder::before{
+  content:""; position:absolute; left:-1.5px; top:-15px; width:60px; height:15px; background:var(--acc);
+  clip-path:polygon(0 100%,9% 0,82% 0,100% 100%);
+}
+.folder:hover{transform:translateY(-4px) rotate(-.4deg)}
+.stack{position:relative; aspect-ratio:1/.92; margin-bottom:12px; background:var(--surface2); border-radius:12px; overflow:hidden; display:grid; place-items:center; align-content:center; gap:4px}
+.pol{position:absolute; top:12%; width:54%; aspect-ratio:3/4; padding:4px 4px 12px; background:var(--paper); border-radius:3px; box-shadow:0 4px 10px rgba(60,15,40,.3)}
+.pol img{display:block; width:100%; height:100%; object-fit:cover}
+.pol:nth-child(1){left:5%; transform:rotate(-9deg)}
+.pol:nth-child(2){left:23%; top:8%; transform:rotate(4deg)}
+.pol:nth-child(3){right:5%; transform:rotate(11deg)}
+.pol:only-child{left:23%; top:10%; transform:rotate(-3deg)}
+.stack .rose{width:54px; height:54px}
+.stack small{font:400 12px/1.2 var(--font-body); color:var(--ink2)}
+.meta{display:grid; grid-template-columns:1fr auto; align-items:center; gap:2px 8px}
+.ko{font:700 22px/1.15 var(--font-ko)}
+.en{font:500 10px/1.4 var(--font-mono); letter-spacing:.2em; color:var(--ink2); margin:0}
+.meta .en{grid-column:1}
+.cnt{grid-row:1/3; grid-column:2; font:500 11px/1 var(--font-mono); padding:6px 10px; border-radius:999px; background:var(--acc); color:var(--on-acc); box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+
+/* buttons */
+.btn{
+  appearance:none; cursor:pointer; border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:11px 20px;
+  font:700 15px/1 var(--font-body); color:#fff; text-shadow:0 1px 1px rgba(120,10,55,.5);
+  background:linear-gradient(180deg,#ffa6c9 0%,#e8467f 52%,#cf2f6b 53%,#e8467f 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 6px 14px rgba(232,70,127,.35);
+}
+.btn:disabled{opacity:.65; cursor:progress}
+.btn.ghost{background:var(--surface); color:var(--ink); text-shadow:none; border:1px solid var(--line); box-shadow:none; font-weight:400; padding:10px 16px; font-size:14px}
+
+/* folder view */
+.bar{display:flex; align-items:center; flex-wrap:wrap; gap:12px 14px; margin-bottom:20px}
+.fh{flex:1 1 150px; min-width:0}
+#fk{margin:0; font:700 clamp(30px,9vw,44px)/1.1 var(--font-ko)}
+#fen::before{content:"✦ "; color:var(--acc)}
+.grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+@media (min-width:560px){.grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}}
+@media (min-width:820px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile{
+  position:relative; display:block; width:100%; aspect-ratio:3/4; padding:6px; border:0; cursor:pointer;
+  background:var(--paper); border-radius:6px; box-shadow:var(--shadow); overflow:hidden;
+  animation:pop .35s ease both;
+}
+.tile img{display:block; width:100%; height:100%; object-fit:cover; border-radius:3px}
+.tile:hover{transform:translateY(-3px) rotate(-.6deg); transition:transform .2s}
+.addtile{
+  display:grid; place-content:center; justify-items:center; gap:6px; width:100%; aspect-ratio:3/4; cursor:pointer;
+  background:transparent; border:2px dashed var(--acc); border-radius:6px; color:var(--ink2); font-size:14px;
+}
+.addtile .plus{font:400 40px/1 var(--font-display); color:var(--acc)}
+.addtile[hidden]{display:none!important}
+.dragging .grid{outline:3px dashed var(--acc); outline-offset:8px; border-radius:8px}
+.empty{margin:28px 0 8px; text-align:center; color:var(--ink2)}
+.empty .rose{width:68px; height:68px}
+.empty p{margin:8px 0 0; font:400 17px/1.5 var(--font-ko)}
+@keyframes pop{from{opacity:0; transform:scale(.96)}to{opacity:1; transform:none}}
+
+/* viewer */
+.lb{
+  position:fixed; inset:0; z-index:50; display:grid; grid-template-rows:auto minmax(0,1fr) auto;
+  background:var(--veil); color:var(--lb-ink);
+  padding:env(safe-area-inset-top,0px) max(12px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(12px,env(safe-area-inset-left,0px));
+}
+.lb-top{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
+.lb-top span{font:500 12px/1 var(--font-mono); letter-spacing:.2em}
+.lb .btn.ghost{background:rgba(255,255,255,.12); color:var(--lb-ink); border-color:rgba(255,255,255,.35)}
+.stage{position:relative; min-height:0; display:grid; place-items:center; touch-action:pan-y}
+.stage img{max-width:100%; max-height:100%; object-fit:contain; background:var(--paper); padding:6px; border-radius:6px; box-shadow:0 18px 50px rgba(0,0,0,.5); transition:filter .3s}
+.stage img.soft{filter:blur(3px)}
+.nav{
+  position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; cursor:pointer;
+  border:1px solid rgba(255,255,255,.4); background:rgba(255,255,255,.16); color:var(--lb-ink); font:400 26px/1 var(--font-body);
+  -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+.nav.prev{left:0}
+.nav.next{right:0}
+.lb-bot{display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px 14px; padding:14px 0; min-height:68px; font-size:15px}
+.dangerbtn{border-color:var(--danger)!important; color:var(--danger)!important; background:rgba(255,255,255,.92)!important}
+.confirm{display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px 12px}
+
+.toast{
+  position:fixed; left:50%; transform:translateX(-50%); z-index:60; max-width:calc(100% - 32px);
+  bottom:calc(20px + env(safe-area-inset-bottom,0px)); padding:11px 18px; border-radius:999px; text-align:center;
+  background:var(--ink); color:var(--bg); font-size:14px; box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+@media (prefers-reduced-motion:reduce){
+  .tile{animation:none}
+  .folder,.tile:hover{transition:none}
+  .folder:hover,.tile:hover{transform:none}
+}
+[hidden]{display:none!important}
+img{max-width:100%}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="rose" viewBox="0 0 64 64">
+    <g class="rp">
+      <ellipse class="o" cx="32" cy="15" rx="12" ry="15"/>
+      <ellipse class="o" cx="32" cy="15" rx="12" ry="15" transform="rotate(72 32 32)"/>
+      <ellipse class="o" cx="32" cy="15" rx="12" ry="15" transform="rotate(144 32 32)"/>
+      <ellipse class="o" cx="32" cy="15" rx="12" ry="15" transform="rotate(216 32 32)"/>
+      <ellipse class="o" cx="32" cy="15" rx="12" ry="15" transform="rotate(288 32 32)"/>
+      <ellipse class="m" cx="32" cy="21" rx="8.5" ry="11" transform="rotate(36 32 32)"/>
+      <ellipse class="m" cx="32" cy="21" rx="8.5" ry="11" transform="rotate(108 32 32)"/>
+      <ellipse class="m" cx="32" cy="21" rx="8.5" ry="11" transform="rotate(180 32 32)"/>
+      <ellipse class="m" cx="32" cy="21" rx="8.5" ry="11" transform="rotate(252 32 32)"/>
+      <ellipse class="m" cx="32" cy="21" rx="8.5" ry="11" transform="rotate(324 32 32)"/>
+      <path class="sp" d="M32 32c-3-1-4 3-1 4c4 1 6-4 2-7c-5-3-9 3-6 8"/>
+    </g>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <p id="note" class="note" role="status" hidden></p>
+
+  <section id="home">
+    <header class="mast">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#rose"/></svg>
+      <p class="eyebrow">ROYAL OUTFIT ARCHIVE</p>
+      <h1><span class="h-a">Rose Court</span><span class="h-b">LOOKBOOK</span></h1>
+      <p class="sub">서로 잘 어울리는 옷, 우리끼리 모아두는 곳</p>
+      <div class="rule" aria-hidden="true">✦</div>
+    </header>
+    <div id="folders" class="folders"></div>
+    <p class="hint">폴더를 눌러 사진을 올리고 지울 수 있어요</p>
+  </section>
+
+  <section id="folder" hidden>
+    <div class="bar">
+      <button id="back" class="btn ghost" type="button">‹ 모든 폴더</button>
+      <div class="fh">
+        <h2 id="fk"></h2>
+        <p id="fen" class="en"></p>
+      </div>
+      <button id="up" class="btn" type="button">사진 올리기</button>
+    </div>
+    <div id="grid" class="grid">
+      <button id="addtile" class="addtile" type="button"><span class="plus">+</span><span>사진 추가</span></button>
+    </div>
+    <div id="empty" class="empty" hidden>
+      <svg class="rose" viewBox="0 0 64 64" style="--petal:var(--acc)" aria-hidden="true"><use href="#rose"/></svg>
+      <p id="emptytext"></p>
+    </div>
+  </section>
+</div>
+
+<div id="lb" class="lb" role="dialog" aria-modal="true" aria-label="사진 크게 보기" hidden>
+  <div class="lb-top">
+    <span id="lbcount">1 / 1</span>
+    <button id="lbclose" class="btn ghost" type="button">닫기</button>
+  </div>
+  <div id="stage" class="stage">
+    <button id="prev" class="nav prev" type="button" aria-label="이전 사진">‹</button>
+    <img id="lbimg" alt="룩 사진">
+    <button id="next" class="nav next" type="button" aria-label="다음 사진">›</button>
+  </div>
+  <div class="lb-bot">
+    <button id="lbdel" class="btn ghost dangerbtn" type="button">이 사진 삭제</button>
+    <div id="confirm" class="confirm" hidden>
+      <span>정말 삭제할까요?</span>
+      <button id="yes" class="btn ghost dangerbtn" type="button">삭제하기</button>
+      <button id="no" class="btn ghost" type="button">취소</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<input id="file" class="sr" type="file" accept="image/*" multiple tabindex="-1" aria-hidden="true">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* Firebase 콘솔에서 복사한 값으로 아래 6줄을 바꿔주세요 */
+window.FIREBASE_CONFIG={
+  apiKey:"AIzaSyAIdv3PV0DZheA-f2pOCdV4oGbVSFFfdMk",
+  authDomain:"snakf-4cdf5.firebaseapp.com",
+  projectId:"snakf-4cdf5",
+  storageBucket:"snakf-4cdf5.firebasestorage.app",
+  messagingSenderId:"421780021407",
+  appId:"1:421780021407:web:ca7247dd45280f131d42aa"
+};
+</script>
+<script>
+(function(){
+  'use strict';
+  var FOLDERS=[
+    {id:'okjeong',ko:'옥정',en:'OKJEONG',acc:'--f1'},
+    {id:'seri',ko:'세리',en:'SERI',acc:'--f2'},
+    {id:'baru',ko:'바루',en:'BARU',acc:'--f3'},
+    {id:'gyeongae',ko:'경애',en:'GYEONGAE',acc:'--f4'}
+  ];
+  var MAX_FULL=850000;
+  var $=function(s){return document.querySelector(s)};
+  var state={route:'home',photos:[],loaded:false,canWrite:null,db:null,noDb:false,err:'',busy:'',lbId:null,lbIdx:-1};
+  var fullCache=new Map();
+  var sigs={};
+  var toastTimer=null;
+
+  function folderOf(id){for(var i=0;i<FOLDERS.length;i++){if(FOLDERS[i].id===id)return FOLDERS[i]}return null}
+  function byFolder(id){return state.photos.filter(function(p){return p.folder===id})}
+  function canEdit(){return !!state.db && state.canWrite!==false}
+
+  function toast(msg){
+    var t=$('#toast'); t.textContent=msg; t.hidden=false;
+    clearTimeout(toastTimer); toastTimer=setTimeout(function(){t.hidden=true},3400);
+  }
+
+  /* ---------- routing ---------- */
+  function go(tok){
+    state.route=tok; closeLb();
+    try{ if(location.hash!=='#'+tok) location.hash=tok; }catch(e){}
+    render(); window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',function(){
+    var t=(location.hash||'').slice(1);
+    var next=folderOf(t)?t:'home';
+    if(next!==state.route){state.route=next; closeLb(); render(); window.scrollTo(0,0)}
+  });
+
+  /* ---------- render ---------- */
+  function render(){
+    var f=folderOf(state.route);
+    $('#home').hidden=!!f; $('#folder').hidden=!f;
+    renderNote();
+    if(f) renderFolder(f); else renderHome();
+    if(state.lbId) refreshLb();
+  }
+
+  function renderNote(){
+    var n=$('#note'), msg='';
+    if(state.setup) msg='설정이 아직 안 끝났어요. index.html 맨 위의 FIREBASE_CONFIG에 Firebase 값을 넣어주세요.';
+    else if(state.noDb) msg='앨범을 불러오지 못했어요. 새로고침해 주세요.';
+    else if(state.err) msg='사진을 불러오는 중 문제가 생겼어요. 새로고침해 주세요.';
+    else if(state.db && state.canWrite===false) msg='지금은 올리거나 지울 수 없어요. Firebase 규칙 설정을 확인해 주세요.';
+    n.textContent=msg; n.hidden=!msg;
+  }
+
+  function makeCard(f){
+    var b=document.createElement('button');
+    b.type='button'; b.className='folder'; b.dataset.id=f.id;
+    b.style.setProperty('--acc','var('+f.acc+')');
+    b.setAttribute('aria-label',f.ko+' 폴더 열기');
+    b.innerHTML='<div class="stack"></div><div class="meta"><span class="ko"></span><span class="cnt"></span><span class="en"></span></div>';
+    b.querySelector('.ko').textContent=f.ko;
+    b.querySelector('.en').textContent=f.en;
+    b.addEventListener('click',function(){go(f.id)});
+    return b;
+  }
+
+  function renderHome(){
+    var host=$('#folders');
+    if(!host.children.length){FOLDERS.forEach(function(f){host.appendChild(makeCard(f))})}
+    FOLDERS.forEach(function(f,i){
+      var list=byFolder(f.id);
+      var sig=state.loaded?(list.slice(0,3).map(function(p){return p.id}).join(',')+'|'+list.length):'loading';
+      if(sigs[f.id]===sig) return;
+      sigs[f.id]=sig;
+      var card=host.children[i];
+      card.querySelector('.cnt').textContent=state.loaded?(list.length+'장'):'…';
+      var stack=card.querySelector('.stack');
+      stack.textContent='';
+      if(state.loaded && list.length===0){
+        stack.innerHTML='<svg class="rose" viewBox="0 0 64 64" style="--petal:var(--acc)" aria-hidden="true"><use href="#rose"/></svg><small>아직 비어있어요</small>';
+      }else if(state.loaded){
+        list.slice(0,3).reverse().forEach(function(p){
+          var d=document.createElement('div'); d.className='pol';
+          var im=document.createElement('img'); im.src=p.thumb; im.alt=''; d.appendChild(im);
+          stack.appendChild(d);
+        });
+      }
+    });
+  }
+
+  function makeTile(p){
+    var t=document.createElement('button');
+    t.type='button'; t.className='tile'; t.dataset.id=p.id;
+    t.setAttribute('aria-label','사진 크게 보기');
+    var im=document.createElement('img'); im.src=p.thumb; im.alt='룩 사진'; im.decoding='async';
+    t.appendChild(im);
+    t.addEventListener('click',function(){openLb(p.id)});
+    return t;
+  }
+
+  function renderFolder(f){
+    $('#folder').style.setProperty('--acc','var('+f.acc+')');
+    var list=byFolder(f.id);
+    $('#fk').textContent=f.ko;
+    $('#fen').textContent=f.en+' · '+(state.loaded?(list.length+'장'):'불러오는 중');
+    var up=$('#up');
+    up.hidden=!canEdit();
+    up.disabled=!!state.busy;
+    up.textContent=state.busy||'사진 올리기';
+    $('#addtile').hidden=!canEdit();
+
+    var grid=$('#grid'), add=$('#addtile');
+    var want={}; list.forEach(function(p){want[p.id]=1});
+    var have=new Map();
+    Array.prototype.forEach.call(grid.querySelectorAll('.tile'),function(t){
+      if(!want[t.dataset.id]) t.remove(); else have.set(t.dataset.id,t);
+    });
+    var prev=add;
+    list.forEach(function(p){
+      var t=have.get(p.id)||makeTile(p);
+      if(prev.nextSibling!==t) grid.insertBefore(t,prev.nextSibling);
+      prev=t;
+    });
+
+    var empty=$('#empty');
+    var isEmpty=state.loaded && list.length===0;
+    empty.hidden=!isEmpty;
+    if(isEmpty) $('#emptytext').textContent=canEdit()?'아직 사진이 없어요. 첫 룩을 올려보세요.':'아직 올라온 사진이 없어요.';
+  }
+
+  /* ---------- viewer ---------- */
+  function curList(){return byFolder(state.route)}
+  function openLb(id){
+    state.lbId=id; $('#lb').hidden=false; document.body.style.overflow='hidden';
+    showLb(); $('#lbclose').focus();
+  }
+  function closeLb(){
+    state.lbId=null; $('#lb').hidden=true; document.body.style.overflow='';
+    $('#confirm').hidden=true;
+  }
+  function syncLbControls(list,i){
+    $('#lbcount').textContent=(i+1)+' / '+list.length;
+    $('#prev').hidden=list.length<2; $('#next').hidden=list.length<2;
+    var ed=canEdit();
+    $('#lbdel').hidden=!ed || !$('#confirm').hidden;
+    if(!ed) $('#confirm').hidden=true;
+  }
+  function showLb(){
+    var list=curList();
+    var i=list.findIndex(function(p){return p.id===state.lbId});
+    if(i<0){closeLb(); return}
+    state.lbIdx=i;
+    var p=list[i], cached=fullCache.get(p.id), img=$('#lbimg');
+    img.src=cached||p.thumb;
+    img.classList.toggle('soft',!cached);
+    $('#confirm').hidden=true;
+    syncLbControls(list,i);
+    if(!cached) loadFull(p.id);
+  }
+  function refreshLb(){
+    var list=curList();
+    var i=list.findIndex(function(p){return p.id===state.lbId});
+    if(i<0){
+      if(!list.length){closeLb(); return}
+      state.lbId=list[Math.min(Math.max(state.lbIdx,0),list.length-1)].id;
+      showLb(); return;
+    }
+    state.lbIdx=i;
+    syncLbControls(list,i);
+  }
+  function loadFull(id){
+    if(!state.db) return;
+    state.db.doc('full/'+id).get().then(function(s){
+      if(!s.exists) return;
+      var d=s.data();
+      if(!d||!d.src) return;
+      fullCache.set(id,d.src);
+      if(fullCache.size>30){fullCache.delete(fullCache.keys().next().value)}
+      if(state.lbId===id){var img=$('#lbimg'); img.src=d.src; img.classList.remove('soft')}
+    }).catch(function(){toast('원본 사진을 불러오지 못했어요')});
+  }
+  function step(dir){
+    var list=curList(); if(list.length<2) return;
+    var i=(state.lbIdx+dir+list.length)%list.length;
+    state.lbId=list[i].id; showLb();
+  }
+
+  /* ---------- writes ---------- */
+  function writeError(e){
+    var c=e&&e.code;
+    if(c==='permission-denied'){state.canWrite=false; render(); toast('지금은 올리거나 지울 수 없어요. Firebase 규칙을 확인해주세요')}
+    else if(c==='resource-exhausted') toast('오늘 사용량을 다 썼거나 저장 공간이 가득 찼어요. 내일 다시 시도해주세요');
+    else if(c==='invalid-argument') toast('사진이 너무 커서 저장하지 못했어요');
+    else toast('연결이 불안정해요. 잠시 후 다시 시도해주세요');
+  }
+
+  function viaImg(file){
+    return new Promise(function(res,rej){
+      var u=URL.createObjectURL(file), im=new Image();
+      im.onload=function(){URL.revokeObjectURL(u); res(im)};
+      im.onerror=function(){URL.revokeObjectURL(u); rej(new Error('decode'))};
+      im.src=u;
+    });
+  }
+  function loadBitmap(file){
+    if(window.createImageBitmap){
+      return createImageBitmap(file,{imageOrientation:'from-image'}).catch(function(){return viaImg(file)});
+    }
+    return viaImg(file);
+  }
+  function encode(b,edge,q){
+    var w=b.naturalWidth||b.width, h=b.naturalHeight||b.height;
+    var s=Math.min(1,edge/Math.max(w,h));
+    var c=document.createElement('canvas');
+    c.width=Math.max(1,Math.round(w*s)); c.height=Math.max(1,Math.round(h*s));
+    var x=c.getContext('2d');
+    x.fillStyle='#ffffff'; x.fillRect(0,0,c.width,c.height);
+    x.imageSmoothingQuality='high';
+    x.drawImage(b,0,0,c.width,c.height);
+    return c.toDataURL('image/jpeg',q);
+  }
+  async function prepare(file){
+    var b=await loadBitmap(file);
+    var edge=1600, q=0.84, tries=0, full=encode(b,edge,q);
+    while(full.length>MAX_FULL && tries<14){
+      if(q>0.52){q-=0.08}else{edge=Math.round(edge*0.85); q=0.78}
+      full=encode(b,edge,q); tries++;
+    }
+    if(full.length>MAX_FULL) throw new Error('toolarge');
+    var thumb=encode(b,480,0.72);
+    if(b.close) b.close();
+    return {full:full,thumb:thumb};
+  }
+
+  async function handleFiles(files){
+    var folder=state.route;
+    if(!folderOf(folder)||!canEdit()||state.busy) return;
+    var list=Array.prototype.filter.call(files||[],function(f){
+      return (f.type&&f.type.indexOf('image/')===0)||/\.(heic|heif|jpe?g|png|webp|gif)$/i.test(f.name||'');
+    });
+    if(!list.length){toast('사진 파일만 올릴 수 있어요'); return}
+    var ok=0, fail=0, base=Date.now();
+    for(var i=0;i<list.length;i++){
+      state.busy='올리는 중 '+(i+1)+'/'+list.length; render();
+      try{
+        var r=await prepare(list[i]);
+        var id=state.db.collection('photos').doc().id;
+        var at=base+i;
+        await state.db.doc('full/'+id).set({src:r.full,folder:folder,createdAt:at});
+        await state.db.doc('photos/'+id).set({thumb:r.thumb,folder:folder,createdAt:at});
+        ok++;
+      }catch(e){
+        if(e&&e.code){writeError(e); state.busy=''; render(); return}
+        fail++;
+      }
+    }
+    state.busy=''; render();
+    if(ok&&!fail) toast(ok+'장 올렸어요');
+    else if(ok) toast(ok+'장 올렸고 '+fail+'장은 읽지 못했어요');
+    else toast('사진을 읽지 못했어요. 다른 파일로 다시 시도해주세요');
+  }
+
+  async function doDelete(){
+    var id=state.lbId;
+    if(!id||!canEdit()) return;
+    try{
+      await state.db.doc('photos/'+id).delete();
+      await state.db.doc('full/'+id).delete();
+      fullCache.delete(id);
+      toast('삭제했어요');
+    }catch(e){writeError(e)}
+    $('#confirm').hidden=true;
+    if(state.lbId) refreshLb();
+  }
+
+  /* ---------- events ---------- */
+  $('#back').addEventListener('click',function(){go('home')});
+  $('#up').addEventListener('click',function(){$('#file').click()});
+  $('#addtile').addEventListener('click',function(){$('#file').click()});
+  $('#file').addEventListener('change',function(){
+    var files=this.files; handleFiles(files); this.value='';
+  });
+  $('#lbclose').addEventListener('click',closeLb);
+  $('#prev').addEventListener('click',function(){step(-1)});
+  $('#next').addEventListener('click',function(){step(1)});
+  $('#lbdel').addEventListener('click',function(){$('#confirm').hidden=false; this.hidden=true; $('#no').focus()});
+  $('#no').addEventListener('click',function(){$('#confirm').hidden=true; $('#lbdel').hidden=!canEdit()});
+  $('#yes').addEventListener('click',doDelete);
+  $('#stage').addEventListener('click',function(e){if(e.target===this) closeLb()});
+  (function(){
+    var x0=null;
+    var st=$('#stage');
+    st.addEventListener('pointerdown',function(e){x0=e.clientX});
+    st.addEventListener('pointerup',function(e){
+      if(x0===null) return;
+      var dx=e.clientX-x0; x0=null;
+      if(Math.abs(dx)>60) step(dx<0?1:-1);
+    });
+    st.addEventListener('pointercancel',function(){x0=null});
+  })();
+  document.addEventListener('keydown',function(e){
+    if($('#lb').hidden) return;
+    if(e.key==='Escape') closeLb();
+    else if(e.key==='ArrowLeft') step(-1);
+    else if(e.key==='ArrowRight') step(1);
+  });
+  (function(){
+    var sec=$('#folder'), depth=0;
+    function hasFiles(e){return e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types||[],'Files')>=0}
+    sec.addEventListener('dragenter',function(e){if(canEdit()&&hasFiles(e)){e.preventDefault(); depth++; sec.classList.add('dragging')}});
+    sec.addEventListener('dragover',function(e){if(canEdit()&&hasFiles(e)) e.preventDefault()});
+    sec.addEventListener('dragleave',function(){depth=Math.max(0,depth-1); if(!depth) sec.classList.remove('dragging')});
+    sec.addEventListener('drop',function(e){
+      if(!hasFiles(e)) return;
+      e.preventDefault(); depth=0; sec.classList.remove('dragging');
+      handleFiles(e.dataTransfer.files);
+    });
+  })();
+
+  /* ---------- start ---------- */
+  var h=(location.hash||'').slice(1);
+  if(folderOf(h)) state.route=h;
+  render();
+
+  function init(){
+    var cfg=window.FIREBASE_CONFIG;
+    if(!window.firebase||!cfg||!cfg.apiKey||/YOUR_/.test(cfg.apiKey)){state.setup=true; render(); return}
+    try{
+      firebase.initializeApp(cfg);
+      state.db=firebase.firestore();
+    }catch(e){state.noDb=true; render(); return}
+    state.canWrite=true; render();
+    state.db.collection('photos').orderBy('createdAt','desc').limit(500).onSnapshot(function(snap){
+      state.photos=snap.docs.map(function(d){var o=d.data()||{}; o.id=d.id; return o});
+      state.loaded=true; state.err=''; render();
+    },function(err){
+      state.err=(err&&err.code)||'error'; state.loaded=true; render();
+    });
+  }
+  init();
+})();
+</script>
+</body>
+</html>
